@@ -1,0 +1,19 @@
+<h1>Listing Shuttles</h1>
+ 
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Shuttle</th>
+  </tr>
+ 
+  <% @shuttles.each do |shuttle| %>
+    <tr>
+      <td><%= shuttle.id %></td>
+      <td><%= shuttle.name %></td>
+      <td><%= link_to 'Show', shuttle_path(shuttle) %></td>
+      <td><%= link_to 'Edit', edit_shuttle_path(shuttle) %></td>
+      <td><%= link_to 'Destroy', shuttle_path(shuttle), method: :delete, data: {confirm: 'Are you sure?'} %></td>    
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'Add New Shuttle', new_shuttle_path %>
